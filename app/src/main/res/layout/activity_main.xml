@@ -1,28 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/result"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@id/main_btn"
-        android:layout_marginTop="5sp"
-        android:layout_marginBottom="5sp"
-        android:textAlignment="viewStart"
-        android:textSize="20sp" />
-
-
     <Button
-        android:id="@+id/main_btn"
+        android:id="@+id/download"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_marginHorizontal="120sp"
-        android:layout_marginBottom="20sp"
-        android:text="@string/butn_name"
-        />
+        android:layout_marginTop="5sp"
+        android:layout="@+id/main_btn"
+        android:text="@string/download" />
+
+    <ImageView
+        android:id="@+id/picture"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </RelativeLayout>

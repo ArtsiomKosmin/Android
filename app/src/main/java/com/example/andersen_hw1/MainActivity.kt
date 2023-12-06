@@ -3,39 +3,32 @@ package com.example.andersen_hw1
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.ComponentActivity
+import com.bumptech.glide.Glide
 
 class MainActivity : ComponentActivity() {
-    private var result: TextView? = null
-    private var mainBtn: Button? = null
-    private val maxInt: Int = Int.MAX_VALUE
-    private val dog:Dog = Dog("Dog Name")
-    private val animalNested:Animal.NestedClass = Animal.NestedClass()
-    private val firstSealed = ExampleSealedClass.FirstClass("first class")
-    private val secondSealed = ExampleSealedClass.SecondClass("second class")
-
+    private var downloadButton: Button? = null
+    private val imageUrl = "https://upweek.ru/wp-content/uploads/2000/01/download-software-0.jpg"
+    private val picture: ImageView by lazy { findViewById(R.id.picture) }
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        downloadButton = findViewById(R.id.download)
 
-        result = findViewById(R.id.result)
-        mainBtn = findViewById(R.id.main_btn)
-
-        mainBtn?.setOnClickListener {
+        downloadButton?.setOnClickListener {
             if(it.isPressed) {
-                result?.text = """
-                        |Kotlin primitives, int max value: $maxInt
-                        |inheritance, constructors: ${dog.makeSound()}
-                        |nested class: ${animalNested.nestedClassMethod()}
-                        |inner class: ${dog.InnerClass().innerClassMethod()}
-                        |sealed class 1: ${firstSealed.firstClassMethod()} 
-                        |sealed class 2: ${secondSealed.secondClassMethod()} 
-                        |sealed class method: ${secondSealed.methodWithName()}
-                    """.trimMargin()
+                picture.loadImageFromUrl(imageUrl)
+
             }
         }
+
+    }
+
+    fun ImageView.loadImageFromUrl(url: String) {
+        Glide.with(this.context).load(url).into(this)
     }
 }

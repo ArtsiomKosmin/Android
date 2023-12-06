@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Andersen_hw1</string>
     <string name="butn_name">Press</string>
+    <string name="download">Download</string>
 </resources>
